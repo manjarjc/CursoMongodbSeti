@@ -1,0 +1,48 @@
+#Pedido GLPI
+https://www.seti.co/glpi/plugins/formcreator/front/formdisplay.php?id=49
+
+#Prompt de ChatGPT para crear un cuaderno donde se instala y carga una base de datos
+https://chat.openai.com/share/3925dbcd-2aec-4488-a353-b2ca1cc81df9
+
+#Google Colab
+https://colab.research.google.com/drive/190bpL96TIWStSuYDMLe0dUMqz04L9J_p?usp=sharing
+
+#Descargar un conjunto de datos de películas
+https://github.com/prust/wikipedia-movie-data/blob/91ae721d3672e8ef4f15b213c763a634250ef61a/movies.json
+
+#Maquinas virtuales
+https://www.osboxes.org/virtualbox-images/
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" guestproperty get "CursoMongoDb" "/VirtualBox/GuestInfo/Net/0/V4/IP"
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" guestproperty enumerate "CursoMongoDb"
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" showvminfo "CursoMongoDb" | findstr MAC
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" showvminfo "CursoMongoDb" --machinereadable | findstr "macaddress"
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" showvminfo "CursoMongoDb" --machinereadable | Select-String -Pattern "macaddress1"
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" dhcpserver findlease --interface vboxnet0 --mac-address=08002731B386
+
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" list bridgedifs
+
+$mac = (& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" showvminfo "CursoMongoDb" --machinereadable | Select-String -Pattern 'macaddress1="([A-F0-9]{12})"').Matches.Groups[1].Value -replace '(.{2})(?!$)', '$1-'
+arp -a | Where-Object { $_ -match $mac }
+arp -a | Where-Object { $_ -match ((& "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" showvminfo "CursoMongoDb" --machinereadable | Select-String -Pattern 'macaddress1="([A-F0-9]{12})"').Matches.Groups[1].Value -replace '(.{2})(?!$)', '$1-') }
+
+
+#MongoDb Atlas
+mongodb+srv://jcmanjar:<password>@cluster0.mhvrakf.mongodb.net/?retryWrites=true&w=majority
+
+#Instalar mongoDb en Ubuntu Server
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
+
+/etc/mongod.conf =>  bindIp: 0.0.0.0
+bindIp: 127.0.0.1
+sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/g' /etc/mongod.conf
+
+#Maquina virtual con Windows 11
+https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
+
+jcmanjar
+qHFGLF6HnOdCg7C5
+
+

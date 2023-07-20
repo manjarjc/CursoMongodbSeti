@@ -1,0 +1,237 @@
+//// Comandos practicas index
+////Importar coleccion
+//// Crear base de datos cookbookdb
+mongo
+use cookbook
+db.createCollection("cooking_recipes");
+show collections
+
+////Desde cd /dataset/ con el usuario mongod
+ls -ls /dataset/cookbook.json
+mongoimport --db cookbook --collection cooking_recipes --file /dataset/cookbook.json
+
+//// Revisar progreso importacion
+use cookbook;
+db.cooking_recipes.count();
+//// revision plan de ejecucion 
+
+	  db.cooking_recipes.find({"recipe": "Crema de apio"},{"recipe" : 1, "_id" : 0 }).explain("executionStats");
+db.cooking_recipes.find({"recipe": "Crema de apio"}).explain("executionStats");
+
+> db.cooking_recipes.find({"recipe": "Crema de apio"}).explain("executionStats");
+{
+        "queryPlanner" : {
+                "plannerVersion" : 1,
+                "namespace" : "cookbook.cooking_recipes",
+                "indexFilterSet" : false,
+                "parsedQuery" : {
+                        "recipe" : {
+                                "$eq" : "Crema de apio"
+                        }
+                },
+                "winningPlan" : {
+                        "stage" : "COLLSCAN",
+                        "filter" : {
+                                "recipe" : {
+                                        "$eq" : "Crema de apio"
+                                }
+                        },
+.
+.
+.
+
+"executionStats" : {
+                "executionSuccess" : true,
+                "nReturned" : 1,
+                "executionTimeMillis" : 1272,
+                "totalKeysExamined" : 0,
+                "totalDocsExamined" : 1000000,
+                "executionStages" : {
+                        "stage" : "COLLSCAN",
+                        "filter" : {
+.
+.
+.
+////Crear Unique index
+
+db.cooking_recipes.createIndex({recipe: 1}, {unique: true});
+
+////Crear Single indexes
+db.cooking_recipes.createIndex( { recipe: 1 } )
+
+
+db.cooking_recipes.find({"recipe": "Crema de apio"}).explain("executionStats");
+
+
+> db.cooking_recipes.find({"recipe": "Crema de apio"}).explain("executionStats");
+{
+        "queryPlanner" : {
+                "plannerVersion" : 1,
+                "namespace" : "cookbook.cooking_recipes",
+                "indexFilterSet" : false,
+                "parsedQuery" : {
+                        "recipe" : {
+                                "$eq" : "Crema de apio"
+                        }
+                },
+                "winningPlan" : {
+                        "stage" : "FETCH",
+                        "inputStage" : {
+                                "stage" : "IXSCAN",
+                                "keyPattern" : {
+                                        "recipe" : 1
+                                },
+                                "indexName" : "recipe_1",
+                                "isMultiKey" : false,
+                                "multiKeyPaths" : {
+                                        "recipe" : [ ]
+                                },
+                                "isUnique" : false,
+                                "isSparse" : false,
+                                "isPartial" : false,
+                                "indexVersion" : 2,
+                                "direction" : "forward",
+                                "indexBounds" : {
+                                        "recipe" : [
+                                                "[\"Crema de apio\", \"Crema de apio\"]"
+                                        ]
+                                }
+                        }
+                },
+                "rejectedPlans" : [ ]
+        },
+        "executionStats" : {
+                "executionSuccess" : true,
+                "nReturned" : 1,
+                "executionTimeMillis" : 0,
+                "totalKeysExamined" : 1,
+                "totalDocsExamined" : 1,
+                "executionStages" : {
+                        "stage" : "FETCH",
+                        "nReturned" : 1,
+                        "executionTimeMillisEstimate" : 0,
+                        "works" : 2,
+                        "advanced" : 1,
+                        "needTime" : 0,
+                        "needYield" : 0,
+                        "saveState" : 0,
+                        "restoreState" : 0,
+                        "isEOF" : 1,
+                        "invalidates" : 0,
+                        "docsExamined" : 1,
+                        "alreadyHasObj" : 0,
+                        "inputStage" : {
+                                "stage" : "IXSCAN",
+                                "nReturned" : 1,
+                                "executionTimeMillisEstimate" : 0,
+                                "works" : 2,
+                                "advanced" : 1,
+                                "needTime" : 0,
+                                "needYield" : 0,
+                                "saveState" : 0,
+                                "restoreState" : 0,
+                                "isEOF" : 1,
+                                "invalidates" : 0,
+                                "keyPattern" : {
+                                        "recipe" : 1
+                                },
+                                "indexName" : "recipe_1",
+                                "isMultiKey" : false,
+                                "multiKeyPaths" : {
+                                        "recipe" : [ ]
+                                },
+                                "isUnique" : false,
+                                "isSparse" : false,
+                                "isPartial" : false,
+                                "indexVersion" : 2,
+                                "direction" : "forward",
+                                "indexBounds" : {
+                                        "recipe" : [
+                                                "[\"Crema de apio\", \"Crema de apio\"]"
+                                        ]
+                                },
+                                "keysExamined" : 1,
+                                "seeks" : 1,
+                                "dupsTested" : 0,
+                                "dupsDropped" : 0,
+                                "seenInvalidated" : 0
+                        }
+                }
+        },
+        "serverInfo" : {
+                "host" : "setimongodb",
+                "port" : 27017,
+                "version" : "4.0.13",
+                "gitVersion" : "bda366f0b0e432ca143bc41da54d8732bd8d03c0"
+        },
+        "ok" : 1
+}
+
+////Crear Compound Indexes
+
+db.cooking_recipes.find({"ingredients.name": "Zanahoria","recipe": /coliflor/}).pretty()
+db.cooking_recipes.getIndexes()
+db.cooking_recipes.find({"ingredients.name": "Zanahoria","recipe": /coliflor/}).explain("executionStats")
+db.cooking_recipes.find({"recipe": /coliflor/}).count()
+db.cooking_recipes.find({"recipe": /coliflor/}).explain("executionStats")
+///Desde otra consola
+db.cooking_recipes.find({"ingredients.name": "Zanahoria","recipe": /coliflor/}).explain("executionStats")
+
+///Creacion del indice
+
+db.cooking_recipes.createIndex( { "ingredients.name": 1, "recipe": 1});
+
+db.cooking_recipes.find({"ingredients.name": "Zanahoria","recipe": /coliflor/}).explain("executionStats")
+db.cooking_recipes.find({"ingredients.name": "Zanahoria"}).explain("executionStats")
+db.cooking_recipes.find({"ingredients.name": "Zanahoria","recipe": "Zanahoria al vapor con brócoli y coliflor"},{"ingredients.name":1, "recipe" : 1, "_id" : 0 }).explain("executionStats")
+db.cooking_recipes.find({"ingredients.name": "Zanahoria","recipe": "Zanahoria al vapor con brócoli y coliflor"},{"ingredients.name" : 1, "recipe" : 1, "_id" : 0 }).hint({"ingredients.name" : 1, "recipe" : 1}).explain("executionStats")
+
+db.cooking_recipes.find({"recipe": "Zanahoria al vapor con brócoli y coliflor"}).explain("executionStats")
+db.cooking_recipes.find({"ingredients.name": "Zanahoria","recipe": /coliflor/}).explain("executionStats")
+db.cooking_recipes.find({"ingredients.name": "Zanahoria","recipe": /coliflor/}).hint({ recipe: 1}).explain("executionStats")
+db.cooking_recipes.find({"ingredients.name": "Zanahoria","recipe": /coliflor/}).hint({ _id: 1}).explain("executionStats")
+
+
+
+////Crear Sparse index
+
+db.cooking_recipes.find({"url": { $exists: true }}).count()
+
+db.cooking_recipes.updateOne( { "_id": 51  }, { $set: { "url": "www.youtube.com/recipe_id_51"} } )
+db.cooking_recipes.updateOne( { "_id": 52  }, { $set: { "url": "www.youtube.com/recipe_id_52"} } )
+db.cooking_recipes.updateOne( { "_id": 53  }, { $set: { "url": "www.youtube.com/recipe_id_53"} } )
+db.cooking_recipes.updateOne( { "_id": 54  }, { $set: { "url": "www.youtube.com/recipe_id_54"} } )
+db.cooking_recipes.updateOne( { "_id": 55  }, { $set: { "url": "www.youtube.com/recipe_id_55"} } )
+
+db.cooking_recipes.createIndex(
+    {url: 1},
+    {unique:true}
+)
+
+db.cooking_recipes.createIndex(
+    {url: 1},
+    {unique:true, sparse:true}
+)
+
+db.cooking_recipes.getIndexes()
+
+db.cooking_recipes.find({"url": { $exists: true }},{"recipe" : 1,"url": 1, "_id" : 0 }).pretty()
+db.cooking_recipes.find({"url": { $exists: true }},{"recipe" : 1,"url": 1, "_id" : 0 }).explain("executionStats")
+
+
+db.cooking_recipes.createIndex(
+    {url: 1},
+    {unique:true, sparse:true}
+)
+
+db.cooking_recipes.updateOne( { "_id": 51  }, { $set: { "url": "www.youtube.com/recipe_id_51"} } )
+db.cooking_recipes.updateOne( { "_id": 52  }, { $set: { "url": "www.youtube.com/recipe_id_52"} } )
+db.cooking_recipes.updateOne( { "_id": 53  }, { $set: { "url": "www.youtube.com/recipe_id_53"} } )
+db.cooking_recipes.updateOne( { "_id": 54  }, { $set: { "url": "www.youtube.com/recipe_id_54"} } )
+db.cooking_recipes.updateOne( { "_id": 55  }, { $set: { "url": "www.youtube.com/recipe_id_55"} } )
+
+
+db.cooking_recipes.find({"url": { $exists: true }})..explain("executionStats")
+
+{ $exists: true }
+db.test_1.getIndexes()
