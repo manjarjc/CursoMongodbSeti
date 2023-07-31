@@ -1,0 +1,61 @@
+//Estructura con campos embebidos y arreglos En este ejemplo, utilizamos campos embebidos y arreglos para representar habilidades y certificaciones de cada candidato: 
+{
+  "_id": ObjectId("id_del_documento"),
+  "nombre": "Nombre del candidato",
+  "apellido": "Apellido del candidato",
+  "edad": 30,
+  "email": "correo@example.com",
+  "telefono": "123-456-7890",
+  "experiencia_laboral": [
+    {
+      "empresa": "Empresa A",
+      "puesto": "Puesto 1",
+      "descripcion": "Descripción de las responsabilidades en el puesto 1",
+      "fecha_inicio": "2020-01-01",
+      "fecha_fin": "2022-01-01"
+    },
+    {
+      "empresa": "Empresa B",
+      "puesto": "Puesto 2",
+      "descripcion": "Descripción de las responsabilidades en el puesto 2",
+      "fecha_inicio": "2018-01-01",
+      "fecha_fin": "2019-12-31"
+    }
+  ],
+  "educacion": [
+    {
+      "institucion": "Universidad X",
+      "titulo": "Licenciatura en Informática",
+      "fecha_inicio": "2015-01-01",
+      "fecha_fin": "2019-12-31"
+    },
+    {
+      "institucion": "Instituto Y",
+      "titulo": "Curso de Desarrollo Web",
+      "fecha_inicio": "2022-01-01",
+      "fecha_fin": "2022-02-28"
+    }
+  ],
+  "habilidades": [
+    {
+      "nombre": "Habilidad 1",
+      "nivel": "Avanzado"
+    },
+    {
+      "nombre": "Habilidad 2",
+      "nivel": "Intermedio"
+    }
+  ],
+  "certificaciones": [
+    {
+      "nombre": "Certificación A",
+      "institucion": "Instituto Z",
+      "fecha_obtencion": "2021-06-15"
+    },
+    {
+      "nombre": "Certificación B",
+      "institucion": "Organización W",
+      "fecha_obtencion": "2020-03-10"
+    }
+  ]
+}

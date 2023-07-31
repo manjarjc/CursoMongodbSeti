@@ -1,0 +1,162 @@
+[
+  {
+    "nombre": "Módulo 1: Introducción a MongoDB",
+    "horas": 4,
+    "temas": [
+      {
+        "nombre": "Introducción a NoSQL y bases de datos documentales.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Características y ventajas de MongoDB.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Instalación de MongoDB.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Conceptos básicos de MongoDB: documentos, colecciones y bases de datos.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Comandos básicos de MongoDB Shell (mongo): crear, consultar y eliminar documentos y colecciones.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Práctica: Instalación de MongoDB y ejecución de comandos básicos.",
+        "TemaVisto": "N",
+        "Sesion": null
+      }
+    ]
+  },
+  {
+    "nombre": "Módulo 2: Modelado de datos en MongoDB",
+    "horas": 6,
+    "temas": [
+      {
+        "nombre": "Diseño de esquemas en MongoDB: modelado de documentos y relaciones.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Tipos de datos en MongoDB: documentos anidados, arreglos y campos enriquecidos.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Estrategias de denormalización y normalización.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Índices en MongoDB: tipos, creación y uso eficiente.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Práctica: Diseño de esquemas y creación de índices para casos de estudio.",
+        "TemaVisto": "N",
+        "Sesion": null
+      }
+    ]
+  },
+  {
+    "nombre": "Módulo 3: Operaciones CRUD y consultas en MongoDB",
+    "horas": 8,
+    "temas": [
+      {
+        "nombre": "Operaciones CRUD: inserción, consulta, actualización y eliminación de documentos.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Consultas avanzadas con el operador $match y $project.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Uso de agregaciones para realizar cálculos y transformaciones complejas.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Consultas embebidas y consultas con múltiples colecciones.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Práctica: Realización de operaciones CRUD y consultas avanzadas en MongoDB.",
+        "TemaVisto": "N",
+        "Sesion": null
+      }
+    ]
+  },
+  {
+    "nombre": "Módulo 4: Administración y escalabilidad en MongoDB",
+    "horas": 8,
+    "temas": [
+      {
+        "nombre": "Configuración del entorno de producción: seguridad, acceso y monitoreo.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Réplicas en MongoDB: configuración y manejo de la alta disponibilidad.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Sharding en MongoDB: particionamiento de datos para escalar horizontalmente.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Estrategias de respaldo y recuperación de datos.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Práctica: Configuración de réplicas y sharding en un entorno de prueba.",
+        "TemaVisto": "N",
+        "Sesion": null
+      }
+    ]
+  },
+  {
+    "nombre": "Módulo 5: Optimización de rendimiento y buenas prácticas",
+    "horas": 4,
+    "temas": [
+      {
+        "nombre": "Identificación y solución de problemas de rendimiento en MongoDB.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Uso de índices eficientes y estrategias de indexación.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Análisis y optimización de consultas.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Buenas prácticas de administración en MongoDB.",
+        "TemaVisto": "N",
+        "Sesion": null
+      },
+      {
+        "nombre": "Práctica: Optimización de consultas y resolución de problemas de rendimiento.",
+        "TemaVisto": "N",
+        "Sesion": null
+      }
+    ]
+  }
+]

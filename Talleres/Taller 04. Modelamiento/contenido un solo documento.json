@@ -1,0 +1,55 @@
+{
+  "modulos": [
+    {
+      "nombre": "Módulo 1: Introducción a MongoDB (4 horas)",
+      "temas": [
+        "Introducción a NoSQL y bases de datos documentales.",
+        "Características y ventajas de MongoDB.",
+        "Instalación de MongoDB.",
+        "Conceptos básicos de MongoDB: documentos, colecciones y bases de datos.",
+        "Comandos básicos de MongoDB Shell (mongo): crear, consultar y eliminar documentos y colecciones.",
+        "Práctica: Instalación de MongoDB y ejecución de comandos básicos."
+      ]
+    },
+    {
+      "nombre": "Módulo 2: Modelado de datos en MongoDB (6 horas)",
+      "temas": [
+        "Diseño de esquemas en MongoDB: modelado de documentos y relaciones.",
+        "Tipos de datos en MongoDB: documentos anidados, arreglos y campos enriquecidos.",
+        "Estrategias de denormalización y normalización.",
+        "Índices en MongoDB: tipos, creación y uso eficiente.",
+        "Práctica: Diseño de esquemas y creación de índices para casos de estudio."
+      ]
+    },
+    {
+      "nombre": "Módulo 3: Operaciones CRUD y consultas en MongoDB (8 horas)",
+      "temas": [
+        "Operaciones CRUD: inserción, consulta, actualización y eliminación de documentos.",
+        "Consultas avanzadas con el operador $match y $project.",
+        "Uso de agregaciones para realizar cálculos y transformaciones complejas.",
+        "Consultas embebidas y consultas con múltiples colecciones.",
+        "Práctica: Realización de operaciones CRUD y consultas avanzadas en MongoDB."
+      ]
+    },
+    {
+      "nombre": "Módulo 4: Administración y escalabilidad en MongoDB (8 horas)",
+      "temas": [
+        "Configuración del entorno de producción: seguridad, acceso y monitoreo.",
+        "Réplicas en MongoDB: configuración y manejo de la alta disponibilidad.",
+        "Sharding en MongoDB: particionamiento de datos para escalar horizontalmente.",
+        "Estrategias de respaldo y recuperación de datos.",
+        "Práctica: Configuración de réplicas y sharding en un entorno de prueba."
+      ]
+    },
+    {
+      "nombre": "Módulo 5: Optimización de rendimiento y buenas prácticas (4 horas)",
+      "temas": [
+        "Identificación y solución de problemas de rendimiento en MongoDB.",
+        "Uso de índices eficientes y estrategias de indexación.",
+        "Análisis y optimización de consultas.",
+        "Buenas prácticas de administración en MongoDB.",
+        "Práctica: Optimización de consultas y resolución de problemas de rendimiento."
+      ]
+    }
+  ]
+}
