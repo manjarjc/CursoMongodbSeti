@@ -1,4 +1,4 @@
-#En este ejemplo, utilizamos una estructura básica donde cada documento representa una hoja de vida con información personal y laboral:
+/En este ejemplo, utilizamos una estructura básica donde cada documento representa una hoja de vida con información personal y laboral:
 {
   "_id": ObjectId("id_del_documento"),
   "nombre": "Nombre del candidato",
